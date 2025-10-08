@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 // MongoDB Connection
-const DB_PATH = "mongodb+srv://manish_db:Manish%402005@cluster0.zvxbuig.mongodb.net/Todo-App?retryWrites=true&w=majority&appName=Cluster0";
+const DB_PATH = const DB_PATH = process.env.MONGO_URI;
 
 // Local Modules
 const todoItemsRouter = require("./routes/todoItemsRouter");
