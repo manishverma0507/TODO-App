@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 // MongoDB Connection
-const DB_PATH = const DB_PATH = process.env.MONGO_URI;
+const DB_PATH = process.env.MONGO_URI;
 
 // Local Modules
 const todoItemsRouter = require("./routes/todoItemsRouter");
