@@ -18,7 +18,11 @@ const app = express();
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cors());
+const corsOptions = {
+  origin: process.env.ALLOWED_ORIGIN || '*',
+};
+app.use(cors(corsOptions));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
