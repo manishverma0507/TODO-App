@@ -1,5 +1,7 @@
+const BASE_URL = import.meta.env.VITE_API_URL; // <- Vercel backend URL
+
 export const addItemToServer = async (task, date) => {
-  const response = await fetch("http://localhost:3000/api/todo", {
+  const response = await fetch(`${BASE_URL}/api/todo`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -11,24 +13,21 @@ export const addItemToServer = async (task, date) => {
 };
 
 export const getItemsFromServer = async () => {
-  const response = await fetch("http://localhost:3000/api/todo");
+  const response = await fetch(`${BASE_URL}/api/todo`);
   const items = await response.json();
   return items.map(mapServerItemToLocalItem);
 };
 
 export const markItemCompletedOnServer = async (id) => {
-  const response = await fetch(
-    `http://localhost:3000/api/todo/${id}/completed`,
-    {
-      method: "PUT",
-    }
-  );
+  const response = await fetch(`${BASE_URL}/api/todo/${id}/completed`, {
+    method: "PUT",
+  });
   const item = await response.json();
   return mapServerItemToLocalItem(item);
 };
 
 export const deleteItemFromServer = async (id) => {
-  await fetch(`http://localhost:3000/api/todo/${id}`, {
+  await fetch(`${BASE_URL}/api/todo/${id}`, {
     method: "DELETE",
   });
   return id;
