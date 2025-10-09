@@ -1,4 +1,4 @@
-const BASE_URL = import.meta.env.VITE_API_URL; // <- Vercel backend URL
+const BASE_URL = "https://todo-app-1-3ein.onrender.com"; // <- Vercel backend URL
 
 export const addItemToServer = async (task, date) => {
   const response = await fetch(`${BASE_URL}/api/todo`, {
